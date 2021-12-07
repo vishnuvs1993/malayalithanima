@@ -1,4 +1,4 @@
-{% load static %}
+{%load static%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,77 +7,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title></title>
     <style>
-        .login{
-            height: 500px;
-            width: 300px;
-            background-color: rgba(195, 194, 250, 0.089);
-            margin-top: 140px;
-            box-shadow: 27px -25px 0px -3px rgba(184,161,161,0.91);
--webkit-box-shadow: 27px -25px 0px -3px rgba(184,161,161,0.91);
--moz-box-shadow: 27px -25px 0px -3px rgba(184,161,161,0.91);
+      .form-control:focus {
+        box-shadow: none;
+        border-color: #BA68C8
+    }
+    
+    .profile-button {
+        background: rgb(99, 39, 120);
+        box-shadow: none;
+        border: none
+    }
+    
+    .profile-button:hover {
+        background: #682773
+    }
+    
+    .profile-button:focus {
+        background: #682773;
+        box-shadow: none
+    }
+    
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+    
+    .back:hover {
+        color: #682773;
+        cursor: pointer
+    }
+    
+    .labels {
+        font-size: 11px
+    }
+    
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
     </style>
   </head>
   <body>
-    <img  src="{% static 'image/logoproject.png' %} " height="120" width="120" style="margin-left: 20px;">
-   <div class="login container-fluid">
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <p id="para1"></p>
-          <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+    <form action="/signup/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+          <div class="col-md-3 border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+              <input type="file" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])" id="u_myfile" name="u_file" style="display: none;""/ ><p>upload your profile picture</p></div>
+          </div>
+          <div class="col-md-5 border-right"> 
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4 class="text-right">Profile Settings</h4>
+                  </div>
+                  <div class="row mt-2">
+                      
+                      <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="" name="u_first_name" id="first_name"></div>
+                      <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="surname" name="u_second_name" id="second_name"></div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-12"><label class="labels">password</label><input type="password" class="form-control" placeholder="Enter password" value=""name="u_password" id="password" ></div>
+                      <div class="col-md-12"><label class="labels">Re-Enter-Password</label><input type="password" class="form-control" placeholder="Re-Enter-Password" value="" name="u_re_enter_password" id="re_enter_password"></div>
+                      <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""name="u_email" id="email"></div>
+                      
+                     
+                      <div class="col-md-12"><label class="labels">Age</label><input type="number" class="form-control" placeholder="Enter your Age" value=""name="u_age" id="age" ></div>
+                      <div class="col-md-12"><label class="labels">Mobile</label><input type="number" class="form-control" placeholder="Phone Number" value="" name="u_phone_number" id="phone_number"></div>
+                      <p id="para_name1" style="color: red; font-size:20px"></p>
+                  </div>
+                 
+                  <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="return signup()">Save Profile</button></div>
+              </div>
+          </div>
+         
+  </div>
+</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $('#image').click(function(){
+            $('#u_myfile').click()
+        })
+      function signup(){
+        user_name=document.getElementById('first_name').value
+        user_name_last=document.getElementById('second_name').value
+        user_password=document.getElementById('password').value
+        user_re=document.getElementById('re_enter_password').value
+        user_email=document.getElementById('email').value
+        user_age=document.getElementById('age').value
+        user_mobile=document.getElementById('phone_number').value
+        if (user_name==""){
+        document.getElementById('para_name1').innerHTML="*please enter your first name*"
+        document.getElementById('first_name').focus()
+         return false
+        }
+        else if(user_name_last==""){
+          document.getElementById('para_name1').innerHTML="*please enter your second name*"
+         
+          document.getElementById('second_name').focus()
+          return false
+
+        }
+        else if(user_password=="" ){
+          document.getElementById('para_name1').innerHTML="*please enter password*"
+          return false
+
+        }
+        else if(user_password.length<8){
+          document.getElementById('para_name1').innerHTML="*you must enter 8 charactors*"
+          return false
+        }
+        else if(user_password!=user_re){
           
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <p id="para2"></p>
-          <input type="password" class="form-control" id="pass">
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">keep me login in</label>
-        </div>
-        <button type="button" class="btn btn-primary btn-block" onclick="validation()" >Submit</button>
-      </form>
+          document.getElementById('para_name1').innerHTML="*please check your password*"
+          return false
+        }
+        else if(user_email==""){
+          document.getElementById('para_name1').innerHTML="*plsese enter your mail*"
+        }
+        else if(user_age==""){
+          document.getElementById('para_name1').innerHTML="*plaese enter your age*"
+          return false
+        }
+        else if(user_mobile.length<10 || user_mobile.length>10){
+          document.getElementById('para_name1').innerHTML="*plsese check your mobile number*"
+          return false
+          
+        }
+      } 
 
-
-
-   </div>
-   <script>
-   function validation(){
-     mail=document.getElementById('Email').value
-     password=document.getElementById('pass').value
-    if(mail==""){
-      document.getElementById('para1').innerHTML="*please enter your email*"
-      document.getElementById('para1').style.color="red"
-      document.getElementById('Email').style.borderColor="orange"
-      document.getElementById('Email').focus()
-    }
-    if(password==""){
-      document.getElementById('para2').innerHTML="*please emter your password*"
-      document.getElementById('para2').style.color="red"
-      document.getElementById('pass').style.borderColor="orange"
-      document.getElementById('pass').focus()
-    }
-   }
-
-     
-     
-   </script>
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
+    </script>
   </body>
 </html>

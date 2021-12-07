@@ -1,0 +1,273 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>kasaragod</title>
+    <style>
+   .a1{
+      color:black;
+      text-decoration: none;
+    }
+   
+
+
+
+
+
+        .color1{
+          background: linear-gradient(to left,rgb(61, 247, 4),rgb(250, 249, 249));
+        }
+       
+         
+         
+         
+        }
+     
+      .modal-footer{
+        height: 300px;
+      }
+      .btn1{
+        margin-bottom: 100px;
+      }
+      .ul1{
+        margin-top: 150px;
+        margin-right: 90px;
+      }
+      .modallogin{
+        display: inline;
+        
+       padding:50px;
+       font-family: 'Times New Roman', Times, serif;
+       font-size: 20px;
+       color: black;
+       
+      }
+      .a {
+  color: black;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+         
+       
+        
+        <nav class="navbar navbar-expand-lg navbar-light color1 " style="height: 80px;" >
+            
+            
+            <!-- navbar image"malayali thanima -->
+                 <img class="navbar-brand " style="width: 120px; height: 70px;" src="{% static 'image/logoproject.png' %} " alt="">
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <!-- ends -->
+             
+           
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">About us <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Explore
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              <!-- modal Live demo button -->
+                <li class="nav-item">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Login
+                  </button>
+                </li>
+                <!-- ends -->
+              </ul>
+            </div>  
+            
+          </nav>
+        </div>
+        <!-- modal starts for login -->
+        <div class="modal fade modal1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" ><img class="navbar-brand" src="{% static 'image/logoproject.png' %} " alt="" height="60"></h5> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <p id="para1"></p>
+                    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <p id="para2"></p>
+                    <input type="password" class="form-control" id="pass">
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">keep me login in</label>
+                  </div>
+                  <button type="button" class="btn btn-primary btn-block" onclick="validation()" >Submit</button>
+                </form>
+             
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-primary btn1" style="margin-left: 30px;" id="btn1" >create a account</button>
+                <ul >
+                  <a href="login" > <li class="modallogin" id="tlogin" style="display: none;" >Traveller Login  </li></a>
+                 <a href="#" > <li class="modallogin"   id="clogin" style="display: none;">corporate </li></a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+
+      
+      <!-- modal ends -->
+
+      <!-- alappuzha back water -->
+      <div class="container" style="background-color: rgba(189, 183, 107, 0);">
+        <h1>Alappuzha Back Water</h1>
+        <h6>open now 8:00 AM - 6:00 PM</h6>
+        <div class="row" style="height: 400px;">
+          <div class="col-lg-4 col-xl-4 col-12" style="background-color: rgba(85, 107, 47, 0);" ><br><br><br>
+          <h2 style="text-align: center;">About</h2><br><br><br>
+          <p>you will get the real aqua water experience...</p>
+          <p>Suggested duration<br>
+            More than 3 hours</p>
+      <a href="https://www.alappuzhaboathouse.com/alappuzha_boathouse.html#one">for booking</a>
+        </div>
+          <div class="col-lg-8 col-xl-8 col-12" style="background-color: rgba(139, 0, 0, 0);">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..." height="500px" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'image/backwater/b2.jpg' %}" class="d-block w-100" alt="..." height="500px" >
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'image/backwater/b3.jpg' %}" class="d-block w-100" alt="..." height="500px" >
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+       
+
+
+        </div >
+
+
+        
+
+
+       
+       </div><br><br><br>
+      
+        
+       <div class= "container mt-lg-5 mt-sm-5">
+           <div class="row" style="background: rgba(220, 20, 60, 0); height: 500px;">
+
+        <div class="col-lg-2 col-xl-2 col-12" style="background: rgba(100, 148, 237, 0);">
+            <h5>Area</h5>
+            <h6>best resturant near by</h6>
+          
+                <ul style="list-style: none; ">
+                  <li ><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."   ><br></li>
+                  <li ><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."  ><br></li>
+                  <li><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."  ></li>
+                  <p>see more</p>
+                </ul>
+             
+        </div>
+        <div class="col-lg-2 col-xl-2 col-12" style="background: rgba(0, 255, 255, 0);">
+            <h5>Area</h5>
+            <h6>attraction</h6>
+            <ul style="list-style: none;">
+                <li ><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."   ><br></li>
+                <li ><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."  ><br></li>
+                <li><img src="{% static 'image/backwater/b1.jpg' %}" class="d-block w-100" alt="..."  ></li>
+                <p>see more</p>
+              </ul>
+        </div>
+        <div class="col-lg-8 col-xl-8"><iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62961.399895375675!2d76.30708641718213!3d9.501119612343127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0884f1aa296b61%3A0xb84764552c41f85a!2sAlappuzha%2C%20Kerala!5e0!3m2!1sen!2sin!4v1632374464693!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+         </div> 
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+    <script>
+        function validation(){
+mail=document.getElementById('Email').value
+password=document.getElementById('pass').value
+if(mail==""){
+ document.getElementById('para1').innerHTML="*please enter your email*"
+ document.getElementById('para1').style.color="red"
+ document.getElementById('Email').style.borderColor="orange"
+ document.getElementById('Email').focus()
+}
+if(password==""){
+ document.getElementById('para2').innerHTML="*please enter your password*"
+ document.getElementById('para2').style.color="red"
+ document.getElementById('pass').style.borderColor="orange"
+ document.getElementById('pass').focus()
+}
+}
+function login(){
+
+}
+
+$('#btn1').click(function(){
+  
+$('#tlogin').show()
+$('#clogin').show()
+})
+
+   </script>
+  </body>
+</html>

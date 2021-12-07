@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  </head>
+  <body onload="user_b_details()">
+      <div class="container">
+        <h1 style="text-align: center;">LIST OF USER BOOKINGS</h1>
+    <table class="table table-striped table-dark" id="user_id">
+      
+          <tr>
+            <th scope="col">user name</th>
+            <th scope="col">user booked hotel name</th>
+            <th scope="col">check in date</th>
+            <th scope="col">check out date</th>
+            <th scope="col">check in time</th>
+            <th scope="col">check out time</th>
+            <th scope="col">hotel single room fare</th>
+            <th scope="col">hotel double room fare</th>
+            <th scope="col">no of booked rooms</th>
+            <th scope="col">no of persons</th>
+            <th scope="col">room type</th>
+            <th scope="col">total fare of room</th>
+            <th scope="col">user email</th>
+            <th scope="col">user mobile no</th>
+          </tr>
+        
+        </table>
+    </div>
+    <script>
+       
+        $.ajaxSetup({headers:{"X-CSRFToken":'{{csrf_token}}'}});
+        function user_b_details(){
+           
+            $.ajax({
+                url:'/adminthanima/booking_user/',
+                type:'GET',
+                success:function(response){
+                console.log(response.display_u_booking)
+                
+                $('.tr').remove()
+                for(i=0;i<response.display_u_booking.length;i++){
+                    $('#user_id').append("<tr ><td>"+response.display_u_booking[i].user_name+"</td><td>"+response.display_u_booking[i].booked_hotel_name+"</td><td>"+response.display_u_booking[i].user_check_in_date+"</td><td>"+response.display_u_booking[i].user_check_out_date+"</td><td>"+response.display_u_booking[i].user_check_in_time+"</td><td>"+response.display_u_booking[i].user_check_out_time+"</td><td>"+response.display_u_booking[i].user_fare_single+"</td><td>"+response.display_u_booking[i].user_fare_double+"</td><td>"+response.display_u_booking[i].user_room_countings+"</td><td>"+response.display_u_booking[i].user_person_countings+"</td><td>"+response.display_u_booking[i].user_room_type+"</td><td>"+response.display_u_booking[i].user_room_fare+"</td><td>"+response.display_u_booking[i].user_email+"</td><td>"+response.display_u_booking[i].user_mobile+"</td></tr>")
+                        
+                    
+                    }
+                    }
+                
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  </body>
+</html>

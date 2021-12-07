@@ -1,0 +1,597 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <!--font-awesome cdn link  -->
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+   
+    <title>malayali thanima</title>
+    <style>
+       .a1{
+      color:black;
+      text-decoration: none;
+    }
+    /* scroll bar css */
+    .btn-header-links {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    overflow-x: scroll;
+    display: inline-block;
+    white-space: nowrap;
+    transition: 1s ease;
+}
+.padding-align{
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+
+.top-adjust {
+    top: 1.4em;
+}
+
+.btn-header-links button {
+    border-radius: 8px;
+}
+
+
+/*scroller parent style*/
+
+.scroller {
+    position: relative;
+    overflow: hidden;
+    margin-top: -0.5%;
+}
+
+
+
+/*left arrow styles*/
+.left-btn-scroller {
+    position: absolute;
+    left: 0%;
+    top: 0.6em;
+    font-size: 22px;
+    color: #3f3f3f;
+    bottom: 0;
+    width: 55px;
+    height: 55px;
+    background-color: rgba(242, 242, 242, 0.94);
+    z-index: 1002;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+
+/*right arrow styles*/
+.right-btn-scroller {
+    position: absolute;
+    right: 0%;
+    top: 0.6em;
+    font-size: 22px;
+    color: #3f3f3f;
+    bottom: 0;
+    width: 55px;
+    cursor: pointer;
+    height: 55px;
+    background-color: rgba(242, 242, 242, 0.94);
+    border-radius: 50%;
+    z-index: 1002;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+/*********************/
+/*button styles*/
+.btn-pin {
+border:0;
+color:#fff;
+    font-weight: normal;
+    text-transform: capitalize;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+
+.btn-bg1 {
+    background-color: rgb(53, 35, 28) !important;
+}
+
+.btn-bg2 {
+    background-color: rgb(170, 114, 92) !important;
+}
+
+.btn-bg3 {
+    background-color: rgb(59, 59, 59) !important;
+}
+
+.btn-bg4 {
+    background-color: rgb(154, 188, 160) !important;
+}
+
+.btn-bg5 {
+    background-color: rgb(220, 107, 97) !important;
+}
+
+.btn-bg6 {
+    background-color: #7F6364 !important;
+}
+
+.btn-bg7 {
+    background-color: #142935 !important;
+}
+
+.btn-bg8 {
+    background-color: #9C0001 !important;
+}
+
+.btn-bg9 {
+    background-color: #9E8462 !important;
+}
+
+.btn-bg10 {
+    background-color: #3B78C1 !important;
+}
+
+
+
+
+/*mobile responsive*/
+@media (max-width: 575.98px) {
+   
+    .padding-align{
+        padding: 0 !important;
+    }
+
+    .top-adjust {
+        top: 3%;
+    }
+    .left-btn-scroller {
+     
+        display: none;
+    }
+
+    .right-btn-scroller {
+     
+        display: none;
+
+    }
+}
+/* scroll bar css code ends */
+
+
+
+
+
+
+        .color1{
+          background: linear-gradient(to left,rgb(61, 247, 4),rgb(250, 249, 249));
+        }
+       
+         
+         
+         
+        
+     
+      .modal-footer{
+        height: 300px;
+      }
+      .btn1{
+        margin-bottom: 100px;
+      }
+      .ul1{
+        margin-top: 150px;
+        margin-right: 90px;
+      }
+      .modallogin{
+        display: inline;
+        
+       padding:50px;
+       font-family: 'Times New Roman', Times, serif;
+       font-size: 20px;
+       color: black;
+       
+      }
+      .a {
+  color: black;
+}
+    
+      .searchbar{
+        margin-bottom: auto;
+        margin-top: auto;
+        height: 60px;
+        background-color: #353b48;
+        border-radius: 30px;
+        padding: 10px;
+        }
+    
+        .search_input{
+        color: rgb(250, 244, 244);
+        border: 0;
+        outline: 0;
+        background: none;
+        width: 0;
+        caret-color:transparent;
+        line-height: 40px;
+        transition: width 0.4s linear;
+        }
+    
+        .searchbar:hover > .search_input{
+        padding: 0 10px;
+        width: 300px;
+        caret-color:red;
+        transition: width 0.4s linear;
+        }
+    
+        .searchbar:hover > .search_icon{
+        background: white;
+        color: #e74c3c;
+        }
+    
+        .search_icon{
+        height: 40px;
+        width: 40px;
+        float: right;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        border-radius: 50%;
+        color:white;
+        text-decoration:none;
+        }
+    
+    </style>
+  </head>
+  <body>
+      <div class="container-fluid">
+         
+       
+        
+    <nav class="navbar navbar-expand-lg navbar-light color1 " style="height: 80px;" >
+        
+        
+        <!-- navbar image"malayali thanima -->
+             <img class="navbar-brand " style="width: 120px; height: 70px; " src="{% static 'image/logoproject.png' %} " alt="">
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <!-- ends -->
+         
+       
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+           
+            <li class="nav-item active">
+              <img class="navbar-brand " style="width: 60px; height: 40px; border-radius: 50%"  src="/thanima/media/0.5654892342589859vishnu.jpg">
+             
+            </li>
+           
+          
+            
+            <li class="nav-item active">
+              <p class="nav-link" style="color: rgb(83, 27, 27); font-family:fantasy">HELLO {{display.first_name}} </p>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">About us <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Explore
+              </a>
+             
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+           
+          <!-- modal Live demo button -->
+            <li class="nav-item">
+
+              {% if display.first_name is not none %}
+              <a href="/adminthanima/logout"><button type="submit" class="btn btn-primary">logout</button></a>
+             
+              {% else %}
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Login
+          </button>
+              <button type="button" class="btn btn-primary">signup</button>
+
+             
+               {% endif %}
+
+              
+            </li>
+      
+            <!-- ends -->
+          </ul>
+        </div>  
+        
+      </nav>
+    </div>
+    <!-- modal starts for login -->
+    <div class="modal fade modal1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" ><img class="navbar-brand" src="{% static 'image/logoproject.png' %} " alt="" height="60"></h5> 
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/adminthanima/login/" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <p id="para1"></p>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="l_email">
+                
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <p id="para2"></p>
+                <input type="password" class="form-control" id="pass" name="l_password">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">keep me login in</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" onclick="validation()" >Submit</button>{{msg}}
+            </form>
+         
+          </div>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-primary btn1" style="margin-left: 30px;" id="btn1" >create a account</button>
+            <ul >
+              <a href="adminthanima/signup" > <li class="modallogin" id="tlogin" style="display: none;" >Traveller Login  </li></a>
+             <a href="#" > <li class="modallogin"   id="clogin" style="display: none;">corporate </li></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- modal ends -->
+  
+<!-- search bar starts -->
+
+<div class="container"  >
+  <div class="row"  >
+    <div class="col-12 col-sm-12">
+      <div class="d-flex justify-content-center ">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+
+
+<!-- search bar ends -->
+
+<!-- scroll bar started -->
+  <div class="container">
+	<div class="row">
+	    <div class="col-lg-12 text-center">
+	        <br>
+	       
+	    </div>
+	<div class="col-lg-12 no-pad scroller">
+                <div class="left-btn-scroller left-scroll ">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="right-btn-scroller right-scroll ">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="col-lg-12 no-pad btn-header-links padding-align top-adjust" id="scroll-div">
+                  
+                   <a href=""> <button class="btn btn-danger btn-pin btn-bg1">Kasargod</button ></a>
+                    
+                    <button class="btn btn-success btn-pin btn-bg2">Kannur</button>
+                    <button class="btn btn-info btn-pin btn-bg3">Kozhikode</button>
+                    <button class="btn btn-primary btn-pin btn-bg4 ">Wayand</button>
+                    <button class="btn btn-warning btn-pin btn-bg5">Malapuram</button>
+                    <button class="btn btn-danger btn-pin btn-bg6">Palakad</button>
+                    <button class="btn btn-success btn-pin btn-bg7">Thrissur</button>
+                    <button class="btn btn-info btn-pin btn-bg8">Ernakulam</button>
+                    <button class="btn btn-primary btn-pin btn-bg9 ">Idukki</button>
+                    <button class="btn btn-warning btn-pin btn-bg10">Kottayam</button>
+                    <button class="btn btn-danger btn-pin btn-bg6">Alapuzha</button>
+                    <button class="btn btn-success btn-pin btn-bg7">Panthanamthitta</button>
+                    <button class="btn btn-info btn-pin btn-bg8">Kollam</button>
+                    <button class="btn btn-primary btn-pin btn-bg9 ">Thiruvandapuram</button>
+                   
+                </div>
+            </div>
+	</div>
+</div>
+<!-- scroll bar ended -->
+
+ <div class="container">
+  <div class="row mt-3">
+   <form action="/adminthanima/add_event/" method="POST">
+     {% csrf_token %}
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])" id="u_myfile" name="a_file1" style="display: none;""/ ><p>upload your event picture</p></div>
+      <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event1" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description1" id="hotel_details" cols="40" rows="10" name="a_info1"></textarea></div>
+    
+    
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image1" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image1').src = window.URL.createObjectURL(this.files[0])" id="u_myfile1" name="a_file2" style="display: none;""/ ><p>upload your event picture</p></div>
+    <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event2" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description2" id="hotel_details" cols="40" rows="10"></textarea></div>
+    
+    
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image2" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image2').src = window.URL.createObjectURL(this.files[0])" id="u_myfile2" name="a_file3" style="display: none;""/ ><p>upload your event picture</p></div>
+      <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event3" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description3" id="hotel_details" cols="40" rows="10"></textarea></div>
+    
+    
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image3" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image3').src = window.URL.createObjectURL(this.files[0])" id="u_myfile3" name="a_file4" style="display: none;""/ ><p>upload your event picture</p></div>
+      <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event4" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description4" id="hotel_details" cols="40" rows="10"></textarea></div>
+    
+    
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image4" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image4').src = window.URL.createObjectURL(this.files[0])" id="u_myfile4" name="a_file5" style="display: none;""/ ><p>upload your event picture</p></div>
+      <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event5" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description5" id="hotel_details" cols="40" rows="10"></textarea></div>
+    
+    
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="image5" class="rounded-circle mt-5" height="150" src="{% static 'image/default.jpg' %}">
+      <input type="file" onchange="document.getElementById('image5').src = window.URL.createObjectURL(this.files[0])" id="u_myfile5" name="a_file6" style="display: none;""/ ><p>upload your event picture</p></div>
+      <div class="col-md-12"><label class="labels">event name</label><input type="text" class="form-control" placeholder="enter your event" value=""name="a_event6" id="password" ></div>
+    <div class="col-md-12"><label class="labels">event discripstion</label><br> <textarea name="a_event_description6" id="hotel_details" cols="40" rows="10"></textarea></div>
+    <button type="submit">save</button>
+    <p id="para_name1" style="color: red; font-size:20px"></p>
+</div>
+</form>
+ </div>
+
+
+
+
+
+
+
+
+
+
+  
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- fa-fa script -->
+    <script src="https://use.fontawesome.com/d61544d6b8.js"></script>
+    <!-- ends -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+    <script>
+      function validation(){
+     mail=document.getElementById('Email').value
+     password=document.getElementById('pass').value
+    if(mail==""){
+      document.getElementById('para1').innerHTML="*please enter your email*"
+      document.getElementById('para1').style.color="red"
+      document.getElementById('Email').style.borderColor="orange"
+      document.getElementById('Email').focus()
+    }
+    if(password==""){
+      document.getElementById('para2').innerHTML="*please enter your password*"
+      document.getElementById('para2').style.color="red"
+      document.getElementById('pass').style.borderColor="orange"
+      document.getElementById('pass').focus()
+    }
+   }
+  
+
+  /*scroll bar code*/
+  $(function () {
+  //pin scrooler
+    $('.left-scroll').click(function (e) {
+        e.preventDefault();
+        var container = document.getElementById('scroll-div');
+        sideScroll(container, 'left', 25, 100, 10);
+    });
+    $('.right-scroll').click(function (e) {
+        e.preventDefault();
+        var container = document.getElementById('scroll-div');
+        sideScroll(container, 'right', 25, 100, 10);
+    })
+
+    })
+    
+    
+        function sideScroll(element, direction, speed, distance, step) {
+    scrollAmount = 0;
+
+
+    var slideTimer = setInterval(function () {
+        if (direction == 'left') {
+            element.scrollLeft -= step;
+
+        } else {
+            element.scrollLeft += step;
+
+
+        }
+        scrollAmount += step;
+        if (scrollAmount >= distance) {
+            window.clearInterval(slideTimer);
+        }
+
+
+    }, speed);
+}
+/*this is the modal login */
+$('#btn1').click(function(){
+  $('#tlogin').show()
+  $('#clogin').show()
+})
+$('#image').click(function(){
+  $('#u_myfile').click()
+})
+$('#image1').click(function(){
+  $('#u_myfile1').click()
+})
+$('#image2').click(function(){
+  $('#u_myfile2').click()
+})
+$('#image3').click(function(){
+  $('#u_myfile3').click()
+})
+$('#image4').click(function(){
+  $('#u_myfile4').click()
+})
+$('#image5').click(function(){
+  $('#u_myfile5').click()
+})
+
+    </script>
+  </body>
+</html>

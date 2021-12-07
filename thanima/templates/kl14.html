@@ -1,0 +1,631 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>kasaragod</title>
+    <style>
+   .a1{
+      color:black;
+      text-decoration: none;
+    }
+   
+
+
+
+
+
+        .color1{
+          background: linear-gradient(to left,rgb(61, 247, 4),rgb(250, 249, 249));
+        }
+       
+         
+         
+         
+        
+     
+      .modal-footer{
+        height: 300px;
+      }
+      .btn1{
+        margin-bottom: 100px;
+      }
+      .ul1{
+        margin-top: 150px;
+        margin-right: 90px;
+      }
+      .modallogin{
+        display: inline;
+        
+       padding:50px;
+       font-family: 'Times New Roman', Times, serif;
+       font-size: 20px;
+       color: black;
+       
+      }
+      .a {
+  color: black;
+}
+
+.table1{
+    background-image: url("{% static 'image/kasargod/im1.jpg' %}");
+    color: rgba(0, 100, 0, 0);
+}
+.table2{
+    background-image: url("{% static 'image/kasargod/im4.jpg' %}");
+   
+    background-position: 0px;
+    color: rgba(0, 100, 0, 0);
+ 
+}
+.table3{
+    background-image: url("{% static 'image/kasargod/im3.jpg' %}");
+   
+    background-position: 0px;
+    color: rgba(0, 100, 0, 0);
+   
+}
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+         
+       
+        
+        <nav class="navbar navbar-expand-lg navbar-light color1 " style="height: 80px;" >
+            
+            
+            <!-- navbar image"malayali thanima -->
+                 <a href="home"><img class="navbar-brand " style="width: 120px; height: 70px;" src="{% static 'image/logoproject.png' %} " alt=""></a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <!-- ends -->
+             
+           
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">About us <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Explore
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              <!-- modal Live demo button -->
+                <li class="nav-item">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Login
+                  </button>
+                </li>
+                <!-- ends -->
+              </ul>
+            </div>  
+            
+          </nav>
+        </div>
+        <!-- modal starts for login -->
+        <div class="modal fade modal1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" ><img class="navbar-brand" src="{% static 'image/logoproject.png' %} " alt="" height="60"></h5> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="/login/" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <p id="para1"></p>
+                    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="l_email">
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <p id="para2"></p>
+                    <input type="password" class="form-control" id="pass" name="l_password">
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">keep me login in</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block" onclick="validation()" >Submit</button>
+                </form>
+             
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-primary btn1" style="margin-left: 30px;" id="btn1" >create a account</button>
+                <ul >
+                  <a href="login" > <li class="modallogin" id="tlogin" style="display: none;" >Traveller Login  </li></a>
+                 <a href="#" > <li class="modallogin"   id="clogin" style="display: none;">corporate </li></a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      
+      
+      <!-- modal ends -->
+
+
+
+
+      <!-- content of kasragod -->
+      <div class="container" >
+        <h1 style="font-family: fantasy; color: rgb(14, 12, 12);" > EXPLORE  KASARGOD</h1>
+        <div class="d-flex flex-row bd-highlight mb-3  justify-content-center" >
+            <div class="p-2 bd-highlight " style="margin-right: 20px;   "><button type="button" class="btn btn-primary" id="place">places to visit </button></div>
+            <div class="p-2 bd-highlight"  ><button type="button" class="btn btn-primary" id="rest">Resturents</button></div> 
+            <div class="p-2 bd-highlight"  style="margin-left: 20px;   "><button type="button" class="btn btn-primary" id="hotel">Find Rooms</button></div>
+          </div>
+
+        <!-- table for images -->
+        <table class="table table-bordered" >
+            <thead>
+              <tr>
+               
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" rowspan="2" style="height: 400px;" class="table1" >1</th>
+                <td class="table2">Mark</td>
+               
+              </tr>
+              <tr>
+                <th scope="row" class="table3">2</th>
+               
+              </tr>
+              
+              
+            </tbody>
+          </table>
+          <br>
+         <!-- table ends -->
+         <!-- place to visit -->
+        <div style="display: none;" id="p">
+            <h3 style="text-align: center; color: darkgreen; font-family:sans-serif">important tourist places</h3>
+         <div class="card-deck" >
+            <div class="card">
+              <img src="{% static 'image/kasargod/im1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Bekkal Fort</h5>
+                <p class="card-text">Bekal Fort was built by Shivappa Nayaka of Keladi in 1650 AD, at Bekal. It is the largest fort in Kerala, spreading over 40 acres.</p>
+               
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/cravipuram.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Ravipuram</h5>
+                <p class="card-text">Ranipuram is a village and a major tourist attraction in the Kasaragod district of the Indian state of Kerala.</p>
+               
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/canathapura.jpg' %}" class="card-img-top" alt="..." style="height: 260px;">
+              <div class="card-body">
+                <h5 class="card-title">Anathapura Lake Temple</h5>
+                <p class="card-text">Ananthapadmanabhaswamy Temple or Anantha Lake Temple is a Hindu temple built in the middle of a lake in the little village of Ananthapura, </p>
+                
+              </div>
+            </div>
+          </div>
+         <br>
+          
+          <div class="card-deck">
+            <div class="card">
+              <img src="{% static 'image/kasargod/cmalla.jpg' %}" class="card-img-top" alt="..." style="height: 260px;">
+              <div class="card-body">
+                <h5 class="card-title">Malla Temple</h5>
+                <p class="card-text">The Mallam Durga Parameshwari Temple is located in Muliyar Village near Bovikanam, in Kasargod District of Kerala. The mallam durga parameshwari temple is 100 of years old. The presiding deity of this temple is Goddess Durga Parameshwari. </p>
+                
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/cmalom.jpg' %}" class="card-img-top" alt="..." style="height: 260px;">
+              <div class="card-body">
+                <h5 class="card-title">Malom</h5>
+                <p class="card-text">Malom is a village located on the slopes of Western Ghats in the Vellarikund taluk of Kasaragod district of Kerala, India.</p>
+               
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/ckottancheri.jpg' %}" class="card-img-top" alt="..." style="height: 260px;">
+              <div class="card-body">
+                <h5 class="card-title">Kottancheri</h5>
+                <p class="card-text">Kottancheri is a famous Hill Station located in Malom village of kasaragod district. Kottancheri Hills is a part of the Western Ghats in Kasaragod district of Kerala, south India</p>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+         <!--place to visit ends  -->
+         
+
+         <!-- Resturents -->
+         <div style="display: none;" id="r">
+            <h3 style="text-align: center; color: darkgreen; font-family:sans-serif">Ready to Eat</h3>
+         <div class="card-deck">
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/v.jpg' %}" class="card-img-top" alt="..." height="260">
+              <div class="card-body">
+                <h5 class="card-title">vicenory Resturent</h5>
+                
+                
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/nombili.jpg' %}" class="card-img-top" alt="..."  height="260">
+              <div class="card-body">
+                <h5 class="card-title">Nombili Resturent</h5>
+               
+               
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/royaldine.jpg' %}" class="card-img-top" alt="..." height="260">
+              <div class="card-body">
+                <h5 class="card-title">Royal Dine Resturent</h5>
+               
+               
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="card-deck">
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/aditya.jpg' %}" class="card-img-top" alt="..."  height="260">
+              <div class="card-body">
+                <h5 class="card-title">Aditiya Resturent</h5>
+              
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/udupi.jpg' %}" class="card-img-top" alt="..." height="260">
+              <div class="card-body">
+                <h5 class="card-title">Udupi Sager Resturent</h5>
+                
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'image/kasargod/r/century.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Century Resturent</h5>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Resturents ends -->
+     
+
+      <!-- Hotel starts -->
+      <div style="display: none;" id="h">
+        <h1 style="text-align: center;">LIST OF HOSTELS</h1><br><br>
+     
+      
+            {% for kl in  k14 %}
+            
+            <div class="card-deck"  ></div>
+              <div class="card">
+                <table class="table table-bordered" >
+                  <thead>
+                    <tr>
+                     
+                      
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2" style="height:300px;  background-image:url(/hotel/media/{{kl.hotel_picture1}}); background-repeat: no-repeat; background-size: cover;"  >1</th>
+                      <td style="height:300px;  background-image:url(/hotel/media/{{kl.hotel_picture3}}); background-repeat: no-repeat; background-size: cover;">Mark</td>
+                     
+                    </tr>
+                    <tr>
+                      <th scope="row" style="height:300px;  background-image:url(/hotel/media/{{kl.hotel_picture2}});background-repeat: no-repeat;background-size: cover;" >2</th>
+                     
+                    </tr>
+                    
+                    
+                  </tbody>
+                </table>
+              <div class="card-body">
+                <h2 class="card-title" id="c{{kl.id}}" style="text-align: center; text-transform: uppercase; ">HOTEL NAME : {{kl.hotel_name}}</h2>
+                <h5 class="card-title" id="c{{kl.id}}" style="text-align: center;">SINGLE ROOM FARE : {{kl.price_single}}</h5>
+                <h5 class="card-title" id="c{{kl.id}}" style="text-align: center;">DOUBLE ROOM FARE : {{kl.price_double}}</h5>
+               
+             
+                <h5 style="text-align: center;"  >LAND MARK : {{kl.hotel_description}} </h5>
+               
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" onclick="hotel('{{kl.hotel_name}}','{{kl.price_single}}','{{kl.price_double}}')" >
+book now
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel"  style="text-align: center;">Make your reservation</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+     
+       <!-- hotel booking -->
+       <p id="error"></p>
+       <form>
+       <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        <div class="form-header">
+                          <!-- <h1 id="hotelname" style="text-align: center;"></h1> -->
+                          
+                    
+                        </div>
+                        <form>
+                         <div class="form-group"> <input type="text" id="b_user_id" name="" id="" hidden></div>
+                          <div class="form-group"> <input class="form-control " type="text" placeholder="" id="hotelname" readonly> <span class="form-label">Hotel Name</span> </div>
+                            <div class="form-group"> <input class="form-control" type="text" placeholder="Enter your name" id="b_name"> <span class="form-label">Name</span> </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="text" value="2021-10-21" required data-date-format="yyyy-mm-dd" id="b_check_in_date" id="b_check_in_date"> <span class="form-label">Check In</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="text" required  value="2021-10-21" data-date-format="yyyy-mm-dd" id="b_check_out_date"> <span class="form-label">Check out</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group"> <input class="form-control" type="text" required id="b_check_in_time"> <span class="form-label">Check In time</span> </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="text" required id="b_check_out_time"> <span class="form-label">Check out time</span> </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group"> <input class="form-control" type="number" id="single" required readonly> <span class="form-label">fare for single room</span> </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group"> <input class="form-control" type="number" id="double" required readonly> <span class="form-label">fare for double room</span> </div>
+                        </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group"> <select class="form-control"  id="number" required>
+                                            <option id="number" value="" selected hidden>no of rooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"> <select class="form-control" required id="person">
+                                            <option value="" selected hidden>no of adults</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"> <select class="form-control" id="type"required onchange="fare()">
+                                            <option value="" selected hidden >type of room</option>
+                                            <option>single room</option>
+                                            <option>double room</option>
+                                            
+                                        </select> <span class="select-arrow"></span> <span class="form-label">Type of Room</span> </div>
+
+                                </div>
+                                <div class="form-group"> <input class="form-control" type="text" id="fare_info" placeholder="Fare" readonly> <span class="form-label">Fare</span> </div>
+                                <script>
+
+                                </script>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email" id="b_email"> <span class="form-label">Email</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="number" placeholder="Enter you Phone" id="b_mobile"> <span class="form-label">Phone</span> </div>
+                                </div>
+                            </div>
+                            <div class="form-btn"> <button class="submit" onclick="booknow()">Book Now</button> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+      <script>
+        $.ajaxSetup({headers:{"X-CSRFToken":'{{csrf_token}}'}});
+        function booknow(){
+          $.ajax({
+            url:'/login/user_booking/',
+            type:'POST',
+            data:{
+              book_hotel_name:$('#hotelname').val(),
+              book_user_name:$('#b_name').val(),
+              book_check_in_date:$('#b_check_in_date').val(),
+              book_check_out_date:$('#b_check_out_date').val(),
+              book_check_in_time:$('#b_check_in_time').val(),
+              book_check_out:$('#b_check_out_time').val(),
+              book_single:$('#single').val(),
+              book_double:$('#double').val(),
+              book_room_count:$('#number').val(),
+              book_person_count:$('#person').val(),
+              book_room_type:$('#type').val(),
+              book_room_fare:$('#fare_info').val(),
+              book_user_email:$('#b_email').val(),
+              book_user_mobile:$('#b_mobile').val()
+              
+            },
+            success:function(response){
+              alert(response.msg)
+            }
+
+
+          })
+        }
+      </script>
+
+
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+                
+            
+
+              </div>
+            </div>
+            
+ 
+            {% endfor %}
+            </div>
+           
+          </div>
+
+
+
+      </div>
+
+
+
+
+
+
+      </div>
+      <br>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+    
+    <script>
+        function validation(){
+mail=document.getElementById('Email').value
+password=document.getElementById('pass').value
+if(mail==""){
+ document.getElementById('para1').innerHTML="*please enter your email*"
+ document.getElementById('para1').style.color="red"
+ document.getElementById('Email').style.borderColor="orange"
+ document.getElementById('Email').focus()
+}
+if(password==""){
+ document.getElementById('para2').innerHTML="*please enter your password*"
+ document.getElementById('para2').style.color="red"
+ document.getElementById('pass').style.borderColor="orange"
+ document.getElementById('pass').focus()
+}
+}
+function login(){
+
+}
+
+$('#btn1').click(function(){
+  
+$('#tlogin').show()
+$('#clogin').show()
+})
+
+// this is the place,hotels,resturant code starts
+$('#place').click(function(){
+    $('#p').show()
+    $('#r').hide()
+    $('#h').hide()
+})
+$('#rest').click(function(){
+    $('#p').hide()
+    $('#r').show()
+    $('#h').hide()
+})
+$('#hotel').click(function(){
+    $('#p').hide()
+    $('#r').hide()
+    $('#h').show()
+})
+// this is the place,hotels,resturant code ends
+function hotel(name,single,double){ 
+  
+  document.getElementById('hotelname').innerHTML=name
+  document.getElementById('hotelname').value=name
+  document.getElementById('single').value=single
+  
+  document.getElementById('double').value=double
+  
+
+
+
+}
+function fare(){
+  number1=Number(document.getElementById('number').value)
+ 
+  person1=document.getElementById('person').value
+ 
+  type1=document.getElementById('type').value
+  
+  single1=Number(document.getElementById('single').value)
+  
+  double1=Number(document.getElementById('double').value)
+  if(type1=='single room'){
+    fare_single=number1*single1
+   
+    document.getElementById('fare_info').value=fare_single
+     
+  }
+ else if(type1=='double room'){
+   fare_double=number1*double1
+   document.getElementById('fare_info').value=fare_double
+
+ }
+}
+
+
+   </script>
+  </body>
+</html>
