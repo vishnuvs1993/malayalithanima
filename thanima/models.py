@@ -3,6 +3,8 @@ from django.db.models.base import Model
 from django.db.models.fields import IntegerField,BigIntegerField
 
 
+
+
 # Create your models here.
 
 class UserDetails(models.Model):
@@ -14,7 +16,10 @@ class UserDetails(models.Model):
     mobile=models.BigIntegerField()
     profile=models.CharField(max_length=100)
 
+
+
 class UserBookings(models.Model):
+    token=models.CharField(max_length=100,default=None)
     booking_hotel_name=models.CharField(max_length=30)
     booking_user_name=models.CharField(max_length=30)
     booking_check_in_date=models.DateField()
@@ -30,6 +35,7 @@ class UserBookings(models.Model):
     booking_user_email=models.EmailField()
     booking_user_mobile=models.BigIntegerField()
 
+ 
 
 
 

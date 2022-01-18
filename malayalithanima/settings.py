@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'thanima',
     'hotel',
-    'adminthanima'
+    'adminthanima',
+    'rest_framework',
+    
+  
    
 ]
 
@@ -88,7 +92,7 @@ DATABASES = {
       'default': {
       
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'malayalithanima',
+        'NAME': 'project',
         'USER':'postgres',
         'PASSWORD':'loadshiva',
         'HOST': 'localhost',
@@ -162,3 +166,13 @@ MEDIA_ROOT= os.path.join(BASE_DIR,'hotel/media')
 #MEDIA_ROOT= os.path.join(BASE_DIR,'hotel/media')
 
 LOGIN_REDIRECT_URL='/adminthanima/profile'
+
+
+# Email Settings
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='malayalithanimademo@gmail.com'
+EMAIL_HOST_PASSWORD='loadshiva'
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL = False

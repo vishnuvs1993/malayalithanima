@@ -1,9 +1,20 @@
+from dataclasses import fields
+import json
+from lib2to3.pgen2 import token
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from . models import *
 from random import random
 from django.core.files.storage import FileSystemStorage
 from hotel.models import * 
+from django.core.mail import send_mail
+from smtplib import SMTP
+import smtplib
+import _json
+from django.core.serializers import serialize
+from django.views.generic import View
+from django.contrib.auth.tokens import default_token_generator
+import random
 
 
 def index(request):
@@ -40,7 +51,7 @@ def flogin(request):
             login_email=request.POST['l_email']
             login_password=request.POST['l_password']
             login_obj=UserDetails.objects.get(email=login_email,password=login_password)
-           
+          
             request.session['user_session']=login_obj.id
             session_obj=request.session['user_session']
             user_obj1=UserDetails.objects.get(id=session_obj)
@@ -86,6 +97,8 @@ def booknow(request):
     try:
         if request.method=='POST':
             print("enter")
+            token1=str(random.random()).split('.')
+            token2=token1[1]
             hotel_name_booking=request.POST['book_hotel_name'] 
             print(hotel_name_booking)
             user_name_booking=request.POST['book_user_name']
@@ -111,20 +124,106 @@ def booknow(request):
             check_in_date_booking, booking_check_out_date=check_out_date_booking, booking_check_in_time=check_in_time_booking,
             booking_check_out_time=check_out_time_booking,booking_fare_single= single_booking,booking_fare_double= double_booking,
             booking_room_countings=room_count_booking,booking_person_countings=person_count_booking, booking_room_type= room_type_booking,
-            booking_room_fare= room_fare_booking,booking_user_email= user_email_booking, booking_user_mobile=user_mobile_booking)
+            booking_room_fare= room_fare_booking,booking_user_email= user_email_booking, booking_user_mobile=user_mobile_booking,token=token1[1])
             
             hotel_details_obj=HotalAvalilibity.objects.get(hotel_name=hotel_name_booking)
-            if hotel_details_obj.avl_single_room>=room_count_booking and hotel_details_obj.avl_double_room>=room_count_booking:
-
+           
             
-                 booking_obj.save()
+            if hotel_details_obj.avl_single_room>=room_count_booking and hotel_details_obj.avl_double_room>=room_count_booking:
+                
+               
 
+                 booking_obj.save()
+                 
+                 if room_type_booking=='single room':
+                     hotel_details_obj.avl_single_room=hotel_details_obj.avl_single_room-room_count_booking
+                     print(hotel_details_obj.avl_single_room)
+                     obj2=HotalAvalilibity.objects.get(hotel_name= hotel_name_booking)
+                     print(obj2)
+                     obj2.avl_single_room= hotel_details_obj.avl_single_room
+                     obj2.save()
+                     if obj2.avl_single_room<=4 :
+                         print("this is working")
+
+                         h_obj2=HotelDetails.objects.get( hotel_name=obj2.hotel_name)
+                         print("this is hotel",h_obj2.email)
+                         send_mail(
+                     'malayalithanima hotelbooked info',
+                     'your rooms avalalibilty is too low,please verify it...',
+                      'malayalithanimademo@gmail.com',
+                     [h_obj2.email],
+                     
+                     fail_silently=False
+
+                 )
+                     else:
+                         print("its ok")    
+
+                    
+                 elif room_type_booking=='double room':
+                     hotel_details_obj.avl_double_room=hotel_details_obj.avl_double_room-room_count_booking
+                     print("double room",hotel_details_obj.avl_double_room)
+                     obj3=HotalAvalilibity.objects.get(hotel_name= hotel_name_booking)
+                     print(obj3)
+                     obj3.avl_double_room= hotel_details_obj.avl_double_room
+                     obj3.save()
+
+
+                     if obj3.avl_double_room<=4 :
+                         print("this is working")
+
+                         h_obj2=HotelDetails.objects.get( hotel_name=obj3.hotel_name)
+                         print("this is hotel",h_obj2.email)
+                         send_mail(
+                     'malayalithanima hotelbooked info',
+                     'your rooms avalalibilty is too low,please verify it...',
+                      'malayalithanimademo@gmail.com',
+                     [h_obj2.email],
+                     
+                     fail_silently=False
+
+                 )
+                     else:
+                         print("its ok")     
+                     
+
+                 else:
+                     print("something wrong")      
+                   
+
+
+                 send_mail(
+                    
+                     'malayalithanima hotelbooked info',
+                     f'Dear Mr.{user_name_booking}\n warm greetings from  {hotel_name_booking}!!!\n Check In-{check_in_date_booking} \n Check-Out-{ check_out_date_booking}\n Room Type-{room_type_booking}\n Room Fare-{room_fare_booking}\n Cancel Policy: \n cancel by 3pm day prior to arrival to avoid one night room and tax penalty. \n Polices for coporate rates and group room blocks may vary \n Thank you for using our app for cancelation "http://127.0.0.1:8000/cancel/{token2}" ',
+
+                     'malayalithanimademo@gmail.com',
+                     [user_email_booking],
+                     fail_silently=False
+
+                 )
+                
+                 
+                 
                  return JsonResponse({'msg':'saved successfully'})  
             else:
                 return JsonResponse({'msg':'no rooms are avaliable'})
-
+            
+                
            
     except Exception as error:
         print(error)    
         
     return render(request,'kl14.html')
+
+
+
+
+def fcancel(request,token2):
+    obj2=UserBookings.objects.get(token=token2)
+
+    return render(request,'cancel.html',{'display':obj2})
+
+  
+
+

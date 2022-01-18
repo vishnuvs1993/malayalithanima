@@ -12,6 +12,9 @@ urlpatterns = [
     path('trail',views.trail),
     path('login/',views.flogin,name="login"),
     path('logout/',views.logout,name="logout"),
-    path('login/user_booking/',views.booknow,name="user_booking")
+    path('login/user_booking/',views.booknow,name="user_booking"),
+    path('cancel/<token2>',views.fcancel,name="cancel"),
+   
+   
     
 ]

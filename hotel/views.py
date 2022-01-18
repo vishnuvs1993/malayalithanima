@@ -85,7 +85,22 @@ def logout(request):
 
 
 def fhotal_avl(request):
-    if request.method=='POST':
+    hotelname=request.POST['a_hotelname']
+    val_obj=HotalAvalilibity.objects.filter(hotel_name=hotelname).exists()
+    if val_obj==False:
+        print("enter the function")
+       
+        ownername=request.POST['a_ownername']
+        todaydate=request.POST['a_todaydate']
+        avlsingleroom=request.POST['a_singleroom_number']
+        avldoubleroom=request.POST['a_doubleroom_number']
+        owner_email=request.POST['a_email']
+        owner_mobile=request.POST['a_mobile']
+        s_obj=HotalAvalilibity(hotel_name= hotelname, owner_name=ownername,today_date= todaydate, avl_single_room= avlsingleroom,avl_double_room= avldoubleroom, email=  owner_email,mobile= owner_mobile)
+        s_obj.save()
+        print("saved sucess")
+        return render(request,'hotel_management.html',{'msg':'update sucessfully'})
+    elif val_obj==True:
         hotelname=request.POST['a_hotelname']
         ownername=request.POST['a_ownername']
         todaydate=request.POST['a_todaydate']
@@ -93,17 +108,27 @@ def fhotal_avl(request):
         avldoubleroom=request.POST['a_doubleroom_number']
         owner_email=request.POST['a_email']
         owner_mobile=request.POST['a_mobile']
+                    
+        print("error")
+
         session_obj=request.session['hotel_session']
         user_obj1=HotelDetails.objects.get(id=session_obj)
-      
+        
         user_obj2=HotalAvalilibity.objects.get(hotel_name=user_obj1.hotel_name)
         print(user_obj2.id)
         avl_obj=HotalAvalilibity(id=user_obj2.id,hotel_name=hotelname,owner_name=ownername,today_date=todaydate,avl_single_room=avlsingleroom,avl_double_room=avldoubleroom,
         email=owner_email,mobile=owner_mobile)
-        
+            
         avl_obj.save()
-        return render(request,'hotel_management.html',{'msg':'saved sucessfully'})
+        print("update sucess")
+        return render(request,'hotel_management.html',{'msg':'update sucessfully'})
+
+
+    return render(request,'hotel_management.html',{'msg':'update sucessfully'})
+    
+            
+
 
      
 
-    return render(request,'hotel_management.html')
+   

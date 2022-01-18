@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 
-from thanima.models import UserBookings
 from . models import *
 from random import random
 from django.core.files.storage import FileSystemStorage
